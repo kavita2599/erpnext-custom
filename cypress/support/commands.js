@@ -10,22 +10,37 @@
 //
 //
 // -- This is a parent command --
-// Cypress.Commands.add("login", (email, password) => { ... });
+// Cypress.Commands.add('login', (email, password) => { ... })
 //
 //
 // -- This is a child command --
-// Cypress.Commands.add("drag", { prevSubject: 'element'}, (subject, options) => { ... });
+// Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
 //
 //
 // -- This is a dual command --
-// Cypress.Commands.add("dismiss", { prevSubject: 'optional'}, (subject, options) => { ... });
+// Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
 //
 //
-// -- This is will overwrite an existing command --
-// Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... });
+// -- This will overwrite an existing command --
+// Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
-const slug = (name) => name.toLowerCase().replace(" ", "-");
+Cypress.Commands.add('hide_modal_messages', () => {
+  cy.wait(500);
+  cy.get('button.close').click();
+});
 
-Cypress.Commands.add("go_to_doc", (doctype, name) => {
-	cy.visit(`/app/${slug(doctype)}/${encodeURIComponent(name)}`);
+Cypress.Commands.add('send_message', (message, room) => {
+  cy.window()
+    .its('frappe')
+    .then((frappe) => {
+      frappe.call({
+        method: 'chat.api.message.send',
+        args: {
+          content: message,
+          user: 'Administrator',
+          room: room,
+          email: 'Administrator',
+        },
+      });
+    });
 });

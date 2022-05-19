@@ -1,87 +1,77 @@
+<br>
 <div align="center">
-    <a href="https://erpnext.com">
-        <img src="https://raw.githubusercontent.com/frappe/erpnext/develop/erpnext/public/images/erpnext-logo.png" height="128">
-    </a>
-    <h2>ERPNext</h2>
-    <p align="center">
-        <p>ERP made simple</p>
-    </p>
-
-[![CI](https://github.com/frappe/erpnext/actions/workflows/server-tests.yml/badge.svg?branch=develop)](https://github.com/frappe/erpnext/actions/workflows/server-tests.yml)
-[![UI](https://github.com/erpnext/erpnext_ui_tests/actions/workflows/ui-tests.yml/badge.svg?branch=develop&event=schedule)](https://github.com/erpnext/erpnext_ui_tests/actions/workflows/ui-tests.yml)
-[![Open Source Helpers](https://www.codetriage.com/frappe/erpnext/badges/users.svg)](https://www.codetriage.com/frappe/erpnext)
-[![codecov](https://codecov.io/gh/frappe/erpnext/branch/develop/graph/badge.svg?token=0TwvyUg3I5)](https://codecov.io/gh/frappe/erpnext)
-[![docker pulls](https://img.shields.io/docker/pulls/frappe/erpnext-worker.svg)](https://hub.docker.com/r/frappe/erpnext-worker)
-
-[https://erpnext.com](https://erpnext.com)
-
+<img width="150" alt="logotype" src=".github/images/logo.png">
 </div>
+<br>
 
-ERPNext as a monolith includes the following areas for managing businesses:
+# Frappe Chat
 
-1. [Accounting](https://erpnext.com/open-source-accounting)
-1. [Warehouse Management](https://erpnext.com/distribution/warehouse-management-system)
-1. [CRM](https://erpnext.com/open-source-crm)
-1. [Sales](https://erpnext.com/open-source-sales-purchase)
-1. [Purchase](https://erpnext.com/open-source-sales-purchase)
-1. [HRMS](https://erpnext.com/open-source-hrms)
-1. [Project Management](https://erpnext.com/open-source-projects)
-1. [Support](https://erpnext.com/open-source-help-desk-software)
-1. [Asset Management](https://erpnext.com/open-source-asset-management-software)
-1. [Quality Management](https://erpnext.com/docs/user/manual/en/quality-management)
-1. [Manufacturing](https://erpnext.com/open-source-manufacturing-erp-software)
-1. [Website Management](https://erpnext.com/open-source-website-builder-software)
-1. [Customize ERPNext](https://erpnext.com/docs/user/manual/en/customize-erpnext)
-1. [And More](https://erpnext.com/docs/user/manual/en/)
+![UI Tests](https://github.com/frappe/chat/actions/workflows/ui-tests.yml/badge.svg)
 
-ERPNext is built on the [Frappe Framework](https://github.com/frappe/frappe), a full-stack web app framework built with Python & JavaScript.
+Modern Chat application for the Frappe ecosystem.
+
+Supports Frappe version 13 and develop.
+
+## Table of Contents
+
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [License](#license)
+
+## Features
+
+1. Intuitive and modern UI/UX
+2. REST architecture
+3. Very lightweight
+4. Mobile First
+5. Guest and Admin view
+6. Dark mode support
+7. All functionalities of a chat app
 
 ## Installation
 
-<div align="center" style="max-height: 40px;">
-    <a href="https://frappecloud.com/erpnext/signup">
-        <img src=".github/try-on-f-cloud-button.svg" height="40">
-    </a>
-    <a href="https://labs.play-with-docker.com/?stack=https://raw.githubusercontent.com/frappe/frappe_docker/main/pwd.yml">
-      <img src="https://raw.githubusercontent.com/play-with-docker/stacks/master/assets/images/button.png" alt="Try in PWD" height="37"/>
-    </a>
-</div>
+1. Get the app from the repository.
 
-> Login for the PWD site: (username: Administrator, password: admin)
+   ```
+   $ bench get-app chat
+   ```
 
-### Containerized Installation
+2. Install the app on your site.
+   ```
+   $ bench --site your-site.local install-app chat
+   ```
 
-Use docker to deploy ERPNext in production or for development of [Frappe](https://github.com/frappe/frappe) apps. See https://github.com/frappe/frappe_docker for more details.
+## Usage
 
-### Manual Install
+1. On the portal pages, the guest will be prompted with this view.
 
-The Easy Way: our install script for bench will install all dependencies (e.g. MariaDB). See https://github.com/frappe/bench for more details.
+   ![Welcome View](.github/images/welcome-screen.png)
 
-New passwords will be created for the ERPNext "Administrator" user, the MariaDB root user, and the frappe user (the script displays the passwords and saves them to ~/frappe_passwords.txt).
+2. The guest will have to fill a form and after that they will be prompted to the chatting space.
 
+   ![Form View](.github/images/guest-form-fill.gif)
 
-## Learning and community
+3. You can click the message icon on the navbar to open the chat admin view.
 
-1. [Frappe School](https://frappe.school) - Learn Frappe Framework and ERPNext from the various courses by the maintainers or from the community.
-2. [Official documentation](https://docs.erpnext.com/) - Extensive documentation for ERPNext.
-3. [Discussion Forum](https://discuss.erpnext.com/) - Engage with community of ERPNext users and service providers.
-4. [Telegram Group](https://t.me/erpnexthelp) - Get instant help from huge community of users.
+   ![Guest View](.github/images/admin-view.gif)
 
+4. Click on any room and start chatting right away.
 
-## Contributing
+   ![Admin Chat](.github/images/admin-chat.gif)
 
-1. [Issue Guidelines](https://github.com/frappe/erpnext/wiki/Issue-Guidelines)
-1. [Report Security Vulnerabilities](https://erpnext.com/security)
-1. [Pull Request Requirements](https://github.com/frappe/erpnext/wiki/Contribution-Guidelines)
-1. [Translations](https://translate.erpnext.com)
+5. Chat with any user on the site.
 
+   ![Direct Room](.github/images/direct-room.gif)
+
+6. Create any private room.
+
+   ![New Room](.github/images/new-room.gif)
+
+7. You can configure the required application settings in chat settings doctype.
+
+   ![Chat Settings](.github/images/chat-settings.png)
 
 ## License
 
-GNU/General Public License (see [license.txt](license.txt))
-
-The ERPNext code is licensed as GNU General Public License (v3) and the Documentation is licensed as Creative Commons (CC-BY-SA-3.0) and the copyright is owned by Frappe Technologies Pvt Ltd (Frappe) and Contributors.
-
-## Logo and Trademark Policy
-
-Please read our [Logo and Trademark Policy](TRADEMARK_POLICY.md).
+MIT
